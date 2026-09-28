@@ -1,23 +1,64 @@
 aid: bitglass
+
 name: Bitglass
-description: 'Bitglass is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'Bitglass is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub
+  for full-pipeline profiling.'
+
 url: https://raw.githubusercontent.com/api-evangelist/bitglass/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-28 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-28'
+
 modified: '2026-09-28'
+
 tags:
 - Company
-apis: []
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/bitglass-hosts.yml
+- type: Vendors
+  url: vendors/bitglass-vendors.yml
+- type: DeveloperPortal
+  url: https://portal.bitglass.com/
+- type: DomainSecurity
+  url: security/bitglass-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/bitglass_stock/
+  url: https://bitglass.com/accounts/login/
+
+apis:
+- name: Bitglass API
+  description: Bitglass provides data protection and security services. Developer portal requires login.
+  humanURL: https://portal.bitglass.com/
+  baseURL: null
+  aid: bitglass:bitglass-api
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Login page at https://portal.bitglass.com/accounts/login/ returns HTML and blocks access to API specs.
+  evidence:
+  - url: https://portal.bitglass.com/accounts/login/
+    status: 200
+  checked: '2026-09-28'
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 5
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
