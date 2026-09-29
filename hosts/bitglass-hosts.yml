@@ -3,13 +3,13 @@ method: derived
 source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
 generator: derive-hosts.py
 summary:
-  hosts: 4
-  own: 0
-  other_domain: 3
-  platform: 1
+  hosts: 3
+  own: 3
+  other_domain: 0
+  platform: 0
   roles:
   - api
-  - other
+  - portal
   - website
 hosts:
 - host: api.bitglass.com
@@ -19,37 +19,32 @@ hosts:
   serves: []
   registrable_domain: bitglass.com
   role: api
-  relation: other-domain
+  relation: own
 - host: bitglass.com
   found_by:
+  - pointer
   - probed
   - contract-discovery
   - well-known
-  types: []
-  serves: []
-  registrable_domain: bitglass.com
-  role: other
-  relation: other-domain
-- host: forgeglobal.com
-  found_by:
-  - pointer
   types:
   - Website
   serves: []
-  registrable_domain: forgeglobal.com
+  registrable_domain: bitglass.com
   role: website
-  relation: platform
+  relation: own
 - host: portal.bitglass.com
   found_by:
+  - pointer
   - apis[]
   - probed
   - site-links
   - docs-index
   - contract-discovery
   - well-known
-  types: []
+  types:
+  - DeveloperPortal
   serves:
   - docs
   registrable_domain: bitglass.com
-  role: other
-  relation: other-domain
+  role: portal
+  relation: own

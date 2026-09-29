@@ -32,8 +32,6 @@ maintainers:
 common:
 - type: Hosts
   url: hosts/bitglass-hosts.yml
-- type: Vendors
-  url: vendors/bitglass-vendors.yml
 - type: DeveloperPortal
   url: https://portal.bitglass.com/
 - type: DomainSecurity
